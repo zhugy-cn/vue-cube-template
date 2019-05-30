@@ -1,0 +1,43 @@
+.user-info-wrapper
+  position relative
+  display flex
+  padding 14px 16px
+  margin-bottom 20px
+  background-color #fff
+  .left-avatar
+    width 68px
+    height 68px
+    margin-right 18px
+    border-radius 50%
+    background-size cover
+    background-image url('http://img4.imgtn.bdimg.com/it/u=3779451315,2022002921&fm=26&gp=0.jpg')
+  .right-content
+    flex-box-col(flex-start, space-around)
+    flex 1
+    padding 4px 0
+  .cubeic-arrow
+    font-size 16px
+    align-self center
+.cell-group
+  border-1px('top-bottom')
+  background-color #fff
+  .cell-item
+    position relative
+    display flex
+    align-items center
+    justify-content space-between
+    height 54px
+    font-size 16px
+    padding 0 16px
+    &:not(:last-child)::after
+      width auto
+      left 16px
+      right 0
+      @media (min-resolution: 2dppx)
+        transform scale(1, 0.5)
+      @media (min-resolution: 3dppx)
+        transform scale(1, 0.333)
+  .cell__value
+    flex 1
+    text-align right
+    padding-right 20px
