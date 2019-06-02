@@ -21,8 +21,10 @@ const LoadingFun = function(type) {
   }
 };
 LoadingFun.hide = function() {
-  instance.hide();
-  instance.onReady();
+  if (instance) {
+    instance.hide();
+    instance.onReady();
+  }
 };
 
 LoadingFun.install = function(Vue) {

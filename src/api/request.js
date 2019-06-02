@@ -50,6 +50,12 @@ ajax.interceptors.request.use(
 ajax.interceptors.response.use(
   response => {
     const { data } = response;
+
+    // 测试
+    if (data.status) {
+      return data.data;
+    }
+
     if (whiteList.includes(data.code)) {
       return data.data;
     } else if (reLogin.includes(data.code)) {

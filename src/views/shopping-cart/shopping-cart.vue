@@ -18,6 +18,8 @@
   </div>
 </template>
 <script>
+import { getList_api } from '_api/common';
+
 const context = require.context(`./`, false, /(?=panel).*?.vue$/);
 const modules = {};
 context.keys().forEach(item => {
@@ -42,7 +44,13 @@ export default {
       return 'panel' + (this.tabIndex + 1);
     },
   },
+  mounted() {
+    this.getList();
+  },
   methods: {
+    async getList() {
+      await getList_api();
+    },
     handleChangeTab() {},
   },
 };
