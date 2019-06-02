@@ -1,7 +1,7 @@
 <template>
   <transition name="zui-toast-fade">
     <div class="zui-loading" v-show="visible">
-      <div :class="'load-content-'+type">
+      <div :class="'load-content-' + type">
         <div class="load load1"></div>
         <div class="load load2"></div>
         <div class="load"></div>
@@ -12,37 +12,37 @@
 
 <script>
 export default {
-  name: "loading",
   data() {
     return {
       visible: false,
-      type: "ball"
+      type: 'ball',
     };
   },
   methods: {
-    show(type = "ball") {
+    show(type = 'ball') {
       this.type = type;
       this.visible = true;
     },
     hide() {
       this.visible = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="stylus" scoped>
 .zui-loading
-  position fixed
+  position absolute
   left 0
   right 0
-  top 0
+  top 44px
   bottom 0
   z-index 100
   display flex
   align-items center
   justify-content center
-  background-color rgba(37, 38, 45, 0.2)
+  padding-bottom 100px
+  // background-color rgba(37, 38, 45, 0.2)
 // 淡入
 .zui-toast-fade-enter-active
   animation toast-in 0.2s
@@ -77,7 +77,6 @@ export default {
     transform perspective(120PX) rotateX(-180deg) rotateY(-179.9deg)
 // 小球加载
 .load-content-ball
-  margin 50PX auto
   width 150PX
   text-align center
   .load

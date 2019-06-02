@@ -1,0 +1,29 @@
+.goods-list
+  display flex
+  flex-wrap wrap
+  padding-top 2PX
+  background-color #fff
+  .goods-item
+    width 50%
+    box-sizing border-box
+    &:nth-child(odd)
+      padding-right 1PX
+    &:nth-child(even)
+      padding-left 1PX
+  .goods-cover
+    width 100%
+  .goods-name
+    font-size 15px
+    padding 10px 14px 8px
+  .goods-price
+    position relative
+    color #ff6700
+    font-size 17px
+    padding 0 14px 10px 22px
+    &::after
+      content '\A5'
+      position absolute
+      left 10px
+      top 1PX
+      font-size 14px
+      text-decoration none

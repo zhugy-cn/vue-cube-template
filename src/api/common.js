@@ -24,3 +24,8 @@ export function is_SMSCode(params) {
 export function getUploadToken_api() {
   return request.post('file/getUploadToken');
 }
+
+// 测试
+export function test_api() {
+  return request.get('/test');
+}

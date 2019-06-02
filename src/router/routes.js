@@ -1,5 +1,6 @@
-import Index from '_views/Index/Index.vue';
-import GoodsDetail from '_views/GoodsDetail/GoodsDetail.vue';
+import Index from '_views/index/index.vue';
+import GoodsDetail from '_views/goods-detail/goods-detail.vue';
+import Demo from './demo';
 
 export default [
   {
@@ -10,16 +11,15 @@ export default [
     children: [
       {
         path: 'home',
-        name: 'home',
-        meta: {
-          title: '首页',
-        },
+        name: 'Home',
         component: () =>
-          import(/* webpackChunkName: "Home" */
-          '_views/Home/Home.vue'),
+          import(
+            /* webpackChunkName: "home" */
+            '_views/home/home.vue'
+          ),
         children: [
           {
-            path: 'goodsDetail',
+            path: 'goods-detail',
             meta: {
               title: '商品详情',
             },
@@ -29,16 +29,33 @@ export default [
       },
       {
         path: 'mall',
-        name: 'mall',
-        meta: {
-          title: '购物',
-        },
+        name: 'Mall',
         component: () =>
-          import(/* webpackChunkName: "Home" */
-          '_views/Mall/Mall.vue'),
+          import(
+            /* webpackChunkName: "mall" */
+            '_views/mall/mall.vue'
+          ),
         children: [
           {
-            path: 'goodsDetail',
+            path: 'goods-detail',
+            meta: {
+              title: '商品详情',
+            },
+            component: GoodsDetail,
+          },
+        ],
+      },
+      {
+        path: 'shopping-cart',
+        name: 'ShoppingCart',
+        component: () =>
+          import(
+            /* webpackChunkName: "shopping-cart" */
+            '_views/shopping-cart/shopping-cart.vue'
+          ),
+        children: [
+          {
+            path: 'goods-detail',
             meta: {
               title: '商品详情',
             },
@@ -48,19 +65,18 @@ export default [
       },
       {
         path: 'personal',
-        name: 'personal',
-        meta: {
-          title: '个人中心',
-        },
+        name: 'Personal',
         component: () =>
-          import(/* webpackChunkName: "Home" */
-          '_views/Personal/Personal.vue'),
+          import(
+            /* webpackChunkName: "personal" */
+            '_views/personal/personal.vue'
+          ),
+        children: Demo,
       },
     ],
   },
   {
-    path: '/goodsDetail',
-    name: 'goodsDetail',
+    path: '/goods-detail',
     meta: {
       title: '商品详情',
     },

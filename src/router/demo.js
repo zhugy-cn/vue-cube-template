@@ -4,9 +4,7 @@ export default [
     meta: {
       title: 'popup',
     },
-    component: () =>
-      import(/* webpackChunkName: "Home" */
-      '@/demo/popup.vue'),
+    component: () => import(/* webpackChunkName: "demo" */ '@/demo/popup.vue'),
   },
   {
     path: '/loading',
@@ -14,16 +12,24 @@ export default [
       title: 'loading',
     },
     component: () =>
-      import(/* webpackChunkName: "Home" */
-      '@/demo/loading.vue'),
+      import(/* webpackChunkName: "demo" */ '@/demo/loading.vue'),
   },
   {
     path: '/toast',
     meta: {
       title: 'toast',
     },
-    component: () =>
-      import(/* webpackChunkName: "Home" */
-      '@/demo/toast.vue'),
+    component: () => import(/* webpackChunkName: "demo" */ '@/demo/toast.vue'),
   },
+  // {
+  //   path: '/scroll',
+  //   meta: {
+  //     title: 'scroll',
+  //   },
+  //   component: () =>
+  //     import(
+  //       /* webpackChunkName: "demo" */
+  //       '@/demo/scroll/scroll.vue'
+  //     ),
+  // },
 ];

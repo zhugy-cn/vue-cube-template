@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <my-header></my-header>
-    <div class="main-content">
-      <cube-button @click="handleToastBounce">toast-bounce</cube-button>
-      <cube-button @click="handleToastText">toast-text</cube-button>
-      <cube-button @click="handleToastLoading">toast-loading</cube-button>
-      <cube-button @click="handleToastSuccess">toast-success</cube-button>
-      <cube-button @click="handleToastError">toast-error</cube-button>
-      <cube-button @click="handleToastWarn">toast-warn</cube-button>
-      <cube-button @click="handleToastMask">toast-mask</cube-button>
-    </div>
-  </div>
+  <zui-page :loading="false">
+    <cube-button @click="handleToastBounce">toast-bounce</cube-button>
+    <cube-button @click="handleToastText">toast-text</cube-button>
+    <cube-button @click="handleToastLoading">toast-loading</cube-button>
+    <cube-button @click="handleToastSuccess">toast-success</cube-button>
+    <cube-button @click="handleToastError">toast-error</cube-button>
+    <cube-button @click="handleToastWarn">toast-warn</cube-button>
+    <cube-button @click="handleToastMask">toast-mask</cube-button>
+  </zui-page>
 </template>
 <script>
 export default {

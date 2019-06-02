@@ -35,7 +35,7 @@ ToastFun.install = function(Vue) {
   Vue.prototype.$toast = this;
 };
 ToastFun['hide'] = function() {
-  instance.hide();
+  instance && instance.hide();
 };
 export default ToastFun;
 

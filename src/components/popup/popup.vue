@@ -18,7 +18,6 @@
 </template>
 <script>
 export default {
-  name: 'popup',
   props: {
     visible: {
       type: Boolean,

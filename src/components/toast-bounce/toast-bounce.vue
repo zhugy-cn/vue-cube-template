@@ -7,7 +7,6 @@
 </template>
 <script>
 export default {
-  name: 'toast-bounce',
   data() {
     return {
       visible: false,

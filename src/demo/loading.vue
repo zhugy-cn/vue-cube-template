@@ -1,15 +1,12 @@
 <template>
-  <div>
-    <my-header></my-header>
-    <div class="main-content">
-      <cube-button @click="handleShowLoading('ball')"
-        >网页loading（一）</cube-button
-      >
-      <cube-button @click="handleShowLoading('rect')"
-        >网页loading（二）</cube-button
-      >
-    </div>
-  </div>
+  <zui-page :loading="false">
+    <cube-button @click="handleShowLoading('ball')"
+      >网页loading（一）</cube-button
+    >
+    <cube-button @click="handleShowLoading('rect')"
+      >网页loading（二）</cube-button
+    >
+  </zui-page>
 </template>
 <script>
 export default {

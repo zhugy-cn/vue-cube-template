@@ -1,24 +1,23 @@
 <template>
-  <div>
-    <my-header></my-header>
-    <div class="main-content">
-      <cube-button @click="handleClickBtn('center')">中间弹出(一)</cube-button>
-      <cube-button @click="handleClickBtn('zoom-center')"
-        >中间弹出(二)</cube-button
-      >
-      <cube-button @click="handleClickBtn('top')">顶部弹出</cube-button>
-      <cube-button @click="handleClickBtn('bottom')">底部弹出</cube-button>
-      <cube-button @click="handleClickBtn('left')">左边弹出</cube-button>
-      <cube-button @click="handleClickBtn('right')">右边弹出</cube-button>
+  <zui-page>
+    <cube-button @click="handleClickBtn('center')">中间弹出(一)</cube-button>
+    <cube-button @click="handleClickBtn('zoom-center')"
+      >中间弹出(二)</cube-button
+    >
+    <cube-button @click="handleClickBtn('top')">顶部弹出</cube-button>
+    <cube-button @click="handleClickBtn('bottom')">底部弹出</cube-button>
+    <cube-button @click="handleClickBtn('left')">左边弹出</cube-button>
+    <cube-button @click="handleClickBtn('right')">右边弹出</cube-button>
+    <cube-button @click="ajax">请求</cube-button>
 
-      <zui-popup :visible.sync="isPopup" :position="position"></zui-popup>
-    </div>
-  </div>
+    <zui-popup :visible.sync="isPopup" :position="position"></zui-popup>
+  </zui-page>
 </template>
 <script>
 import ZuiPopup from '_com/popup/popup';
+import { test_api } from '_api/common';
 export default {
-  name: 'popup',
+  name: 'Popup',
   components: {
     ZuiPopup,
   },
@@ -28,10 +27,19 @@ export default {
       position: '',
     };
   },
+  async created() {
+    await test_api();
+    this.$loading.hide();
+  },
   methods: {
     handleClickBtn(position) {
       this.position = position;
       this.isPopup = !this.isPopup;
+    },
+    async ajax() {
+      this.$toast();
+      await test_api();
+      this.$toast.hide();
     },
   },
 };

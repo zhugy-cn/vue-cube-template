@@ -3,7 +3,11 @@
     <keep-alive>
       <router-view class="index__content"></router-view>
     </keep-alive>
-    <cube-tab-bar class="tab-bar__custom border-top-1px" v-model="activeTab">
+    <cube-tab-bar
+      class="tab-bar__custom border-top-1px"
+      :class="{ move: isToggle }"
+      v-model="activeTab"
+    >
       <cube-tab v-for="(item, index) in tabs" :label="item.label" :key="index">
         <i slot="icon" :class="item.icon"></i>
         {{ item.label }}
@@ -13,17 +17,22 @@
 </template>
 <script>
 export default {
-  name: 'index',
+  name: 'Index',
   data() {
     return {
+      isToggle: false,
       tabs: [
         {
           label: '首页',
           icon: 'cubeic-home',
         },
         {
-          label: '购物',
+          label: '商店',
           icon: 'cubeic-credit-card',
+        },
+        {
+          label: '购物车',
+          icon: 'cubeic-mall',
         },
         {
           label: '我的',
@@ -37,10 +46,12 @@ export default {
       get() {
         let routeName = this.$route.name;
         switch (routeName) {
-          case 'home':
+          case 'Home':
             return '首页';
-          case 'mall':
-            return '购物';
+          case 'Mall':
+            return '商店';
+          case 'ShoppingCart':
+            return '购物车';
           default:
             return '我的';
         }
@@ -51,8 +62,11 @@ export default {
           case '首页':
             route = '/home';
             break;
-          case '购物':
+          case '商店':
             route = '/mall';
+            break;
+          case '购物车':
+            route = '/shopping-cart';
             break;
           case '我的':
             route = '/personal';
@@ -61,6 +75,14 @@ export default {
         this.$router.push(route);
       },
     },
+  },
+  beforeRouteUpdate(to, from, next) {
+    if (to.matched.length == 2) {
+      this.isToggle = false;
+    } else {
+      this.isToggle = true;
+    }
+    next();
   },
 };
 </script>
@@ -75,6 +97,9 @@ export default {
     overflow auto
   .tab-bar__custom
     background #fff
+    // transition transform 0.4s
+    // &.move
+    //   transform translateY(100%) translateZ(0)
     .cube-tab
       flex-box-col(center, center)
       height 50px
