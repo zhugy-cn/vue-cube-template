@@ -1,9 +1,9 @@
 <template>
   <zui-page :loading="false">
-    <cube-button @click="handleShowLoading('ball')"
+    <cube-button @click="handleShowLoading('dot')"
       >网页loading（一）</cube-button
     >
-    <cube-button @click="handleShowLoading('rect')"
+    <cube-button @click="handleShowLoading('line')"
       >网页loading（二）</cube-button
     >
   </zui-page>
@@ -12,13 +12,15 @@
 export default {
   name: '',
   data() {
-    return {};
+    return {
+      loading1: false,
+    };
   },
   methods: {
     handleShowLoading(type) {
-      this.$loading(type);
+      this.$pageLoading(type);
       setTimeout(() => {
-        this.$loading.hide();
+        this.$pageLoading.hide();
       }, 2000);
     },
   },

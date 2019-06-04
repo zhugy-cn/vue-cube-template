@@ -34,7 +34,7 @@ export default {
   name: 'Personal',
   data() {
     return {
-      cellList: ['popup', 'loading', 'toast', 'scroll'],
+      cellList: ['popup', 'loading', 'toast', 'load-more', 'scroll'],
     };
   },
 };

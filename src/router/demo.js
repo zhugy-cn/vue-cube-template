@@ -21,6 +21,14 @@ export default [
     },
     component: () => import(/* webpackChunkName: "demo" */ '@/demo/toast.vue'),
   },
+  {
+    path: '/load-more',
+    meta: {
+      title: 'LoadMore',
+    },
+    component: () =>
+      import(/* webpackChunkName: "demo" */ '@/demo/load-more.vue'),
+  },
   // {
   //   path: '/scroll',
   //   meta: {

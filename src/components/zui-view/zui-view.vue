@@ -74,7 +74,7 @@ export default {
 .move.toggle
   transform translateX(-20%) translateZ(0)
 .scale.toggle
-  transform scale(0.94) translateZ(0)
+  transform scale(0.96, 0.98) translateZ(0)
 .sub-page
   position absolute
   z-index 10

@@ -6,9 +6,10 @@ export function test_api() {
 }
 
 // 分页数据
-export function getList_api(params) {
+export function getList_api(params, cancelToken) {
   return request.get('/getList', {
     params,
+    cancelToken,
     baseURL: 'https://api.zhugy.cn',
   });
 }

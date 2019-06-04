@@ -1,7 +1,7 @@
 import axios from 'axios';
 import store from '@/store';
 import { baseURL } from '@/config';
-import Loading from '_com/loading';
+import PageLoading from '_com/page-loading';
 import Toast from '_com/toast';
 import ToastBounce from '_com/toast-bounce';
 
@@ -19,7 +19,7 @@ function errorLog(data, config) {
 
 // 请求异常
 function requestException(message) {
-  Loading.hide();
+  PageLoading.hide();
   Toast.hide();
   ToastBounce(message);
   return Promise.reject(message);
@@ -69,6 +69,10 @@ ajax.interceptors.response.use(
   },
   error => {
     let message = error.message;
+    // 手动取消请求
+    if (axios.isCancel(error)) {
+      return Promise.reject(message);
+    }
     if (error.response) {
       // 请求已发出，但服务器响应的状态码不在 2xx 范围内
       // 自定义的错误信息

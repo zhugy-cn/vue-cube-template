@@ -44,7 +44,7 @@ export default {
   },
   created() {
     // 显示loading
-    this.loading && this.$loading(this.loadingType);
+    this.loading && this.$pageLoading(this.loadingType);
   },
   methods: {
     onReady() {
