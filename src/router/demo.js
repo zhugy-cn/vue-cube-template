@@ -35,6 +35,6 @@ export default [
       title: 'scroll',
     },
     component: () =>
-      import(/* webpackChunkName: "scroll" */ '@/demo/scroll/scroll.vue'),
+      import(/* webpackChunkName: "scroll" */ '@/demo/scroll.vue'),
   },
 ];
