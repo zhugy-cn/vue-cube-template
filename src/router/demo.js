@@ -29,15 +29,12 @@ export default [
     component: () =>
       import(/* webpackChunkName: "demo" */ '@/demo/load-more.vue'),
   },
-  // {
-  //   path: '/scroll',
-  //   meta: {
-  //     title: 'scroll',
-  //   },
-  //   component: () =>
-  //     import(
-  //       /* webpackChunkName: "demo" */
-  //       '@/demo/scroll/scroll.vue'
-  //     ),
-  // },
+  {
+    path: '/scroll',
+    meta: {
+      title: 'scroll',
+    },
+    component: () =>
+      import(/* webpackChunkName: "scroll" */ '@/demo/scroll/scroll.vue'),
+  },
 ];

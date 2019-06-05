@@ -35,6 +35,7 @@ export default {
           ...this.queryList,
           status: this.status,
         };
+        // 请求之前钩子
         if (this._beforeGetList) {
           this._beforeGetList();
         }
@@ -56,6 +57,7 @@ export default {
             // 还有下一页
           }
         }
+        // 请求之后钩子
         if (this._afterGetList) {
           this._afterGetList(list);
         }
@@ -65,6 +67,10 @@ export default {
           this.dataList = this.dataList.concat(list);
         }
         this.isLoading = false;
+        // 赋值之后钩子
+        if (this._afterData) {
+          this._afterData();
+        }
         resolve();
       });
     },

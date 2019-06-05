@@ -1,6 +1,7 @@
 import { getList_api } from '_api/common';
 import getListMixin from '@/mixins/getListMixin';
 import panelMixin from '@/mixins/panelMixin';
+import Scroll from 'vue-slim-better-scroll';
 
 const context = require.context(`./`, false, /(?=panel).*?.vue$/);
 const modules = {};
@@ -15,34 +16,24 @@ export default {
   mixins: [getListMixin, panelMixin],
   components: {
     ...modules,
+    Scroll,
   },
   data() {
     return {
-      showScrollBar: false,
       getList_api: getList_api,
       tabs: ['全部', '待付款', '待发货', '待收货'],
-      options: {
-        scrollbar: true,
-        pullDownRefresh: {
-          txt: '刷新成功',
-        },
-        pullUpLoad: true,
-      },
     };
   },
   created() {},
   methods: {
-    async onPullingDown() {
-      this.isData = true;
-      this.isMore = true;
-      this.dataList = [];
-      this.queryList.page = 1;
-      await this.getDataList('refresh');
-      this.$refs.scroll.forceUpdate();
-    },
-    onPullingUp() {
+    loadRefresh() {
       setTimeout(() => {
-        this.$refs.scroll.forceUpdate(false);
+        this.$refs.scroll.update();
+      }, 1500);
+    },
+    loadMore() {
+      setTimeout(() => {
+        this.$refs.scroll.update(false);
       }, 2000);
     },
   },

@@ -34,7 +34,7 @@ export default {
     // loading 类型
     loadingType: {
       type: String,
-      default: 'ball',
+      default: 'dot',
     },
   },
   data() {

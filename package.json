@@ -8,12 +8,17 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@better-scroll/core": "^2.0.0-alpha.12",
+    "@better-scroll/pull-down": "^2.0.0-alpha.12",
+    "@better-scroll/pull-up": "^2.0.0-alpha.12",
+    "@better-scroll/scroll-bar": "^2.0.0-alpha.12",
     "amfe-flexible": "^2.2.1",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "cube-ui": "~1.12.15",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
+    "vue-slim-better-scroll": "^1.7.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

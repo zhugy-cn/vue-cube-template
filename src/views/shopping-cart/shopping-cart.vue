@@ -10,17 +10,24 @@
         <div class="zui-tab">{{ item }}</div>
       </cube-tab>
     </cube-tab-bar>
-    <div class="panel-list">
-      <transition :name="'tab-panel-move--' + direction">
-        <!-- <transition name="tab-panel-fade"> -->
+    <div class="panel-list" :class="{ 'scroll-bar': showScrollBar }">
+      <cube-scroll
+        ref="scroll"
+        :options="options"
+        @pulling-down="onPullingDown"
+        @pulling-up="onPullingUp"
+      >
         <keep-alive>
           <component
-            class="tab-panel-wrapper"
             :is="currentComponent"
-            :data="dataList"
+            :data-list="dataList"
+            :is-data="isData"
+            :is-more="isMore"
+            :is-loading="isLoading"
+            :limit="queryList.limit"
           ></component>
         </keep-alive>
-      </transition>
+      </cube-scroll>
     </div>
   </div>
 </template>
@@ -42,4 +49,12 @@
   left 0
   right 0
   overflow hidden
+.scroll-bar >>> .bscroll-vertical-scrollbar
+  display none
+.panel-loading
+  position absolute
+  z-index 9
+  top 30px
+  left 50%
+  transform translateX(-50%)
 </style>

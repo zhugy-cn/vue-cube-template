@@ -79,7 +79,7 @@ Vue.use(TabBar);
 // Vue.use(ActionSheet)
 // Vue.use(Drawer)
 // Vue.use(ImagePreview)
-// Vue.use(Scroll)
+Vue.use(Scroll);
 Vue.use(Slide);
 // Vue.use(IndexList)
 // Vue.use(Swipe)

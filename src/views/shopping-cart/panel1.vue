@@ -1,9 +1,16 @@
 <template>
-  <div>
+  <transition-group
+    appear
+    tag="div"
+    :css="false"
+    @before-enter="beforeEnter"
+    @enter="enter"
+  >
     <div
       class="panel-item-wrap border-bottom-1px"
-      v-for="item in data"
+      v-for="(item, index) in dataList"
       :key="item.id"
+      :data-index="index"
     >
       <div
         class="panel__content"
@@ -52,17 +59,13 @@
         <div class="right-staff">揽件员：{{ item.name }}</div>
       </div>
     </div>
-  </div>
+  </transition-group>
 </template>
 <script>
+import panelItemMixin from '@/mixins/panelItemMixin';
 export default {
   name: 'Panel1',
-  props: {
-    data: {
-      type: Array,
-      default: () => [],
-    },
-  },
+  mixins: [panelItemMixin],
 };
 </script>
 <style lang="stylus" scoped src="./panel.styl"></style>

@@ -2,42 +2,37 @@
 [class*='-1px']::before
   border-color $line-color !important
 // tab 栏切换面板
-.tab-panel-wrapper
-  position absolute
-  z-index 99
-  top 0
-  left 0
-  width 100%
-  height 100%
-  overflow auto
+// .tab-panel-wrapper
+// position absolute
+// z-index 99
+// top 0
+// left 0
+// width 100%
+// height 100%
+// overflow auto
 // 动画
-// .tab-panel-fade-enter-active
-// animation toast-in 0.4s
-// .tab-panel-fade-leave-active
-// animation toast-out 0.4s
-// @keyframes toast-in
-// 100%
-// opacity 1
-// @keyframes toast-out
-// 100%
-// opacity 0
 .tab-panel-move--left-enter
-  transform translateX(6%) translateZ(0)
+  transform translateX(10%) translateZ(0)
   opacity 0
 .tab-panel-move--left-leave-active
-  transform translateX(-6%) translateZ(0)
+  transform translateX(-10%) translateZ(0)
   opacity 0
 .tab-panel-move--left-enter-active
-  transition transform 0.4s, opacity 0.4s
+  transition transform 0.4s, opacity 0.4s ease
 .tab-panel-move--left-leave-active
-  transition transform 0.2s, opacity 0.2s
+  transition transform 0.2s, opacity 0.2s ease
 .tab-panel-move--right-enter
-  transform translateX(-6%) translateZ(0)
+  transform translateX(-10%) translateZ(0)
   opacity 0
 .tab-panel-move--right-leave-active
-  transform translateX(6%) translateZ(0)
+  transform translateX(10%) translateZ(0)
   opacity 0
 .tab-panel-move--right-enter-active
-  transition transform 0.4s, opacity 0.4s
+  transition transform 0.4s, opacity 0.4s ease
 .tab-panel-move--right-leave-active
-  transition transform 0.2s, opacity 0.2s
+  transition transform 0.2s, opacity 0.2s ease
+.tab-panel-move--left-enter-active, .tab-panel-move--left-leave-active, .tab-panel-move--right-enter-active, .tab-panel-move--right-leave-active
+  position absolute
+  left 0
+  top 0
+  width 100%

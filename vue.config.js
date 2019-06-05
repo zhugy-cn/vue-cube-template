@@ -31,4 +31,9 @@ module.exports = {
       .set('_views', resolve('src/views'))
       .set('_assets', resolve('src/assets'));
   },
+
+  devServer: {
+    port: 1995,
+    disableHostCheck: true, // 内网穿透
+  },
 };

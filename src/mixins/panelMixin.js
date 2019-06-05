@@ -2,16 +2,18 @@ export default {
   data() {
     return {
       tabIndex: 0,
-      direction: 'left',
     };
   },
   watch: {
-    tabIndex(newVal, oldVal) {
-      if (newVal > oldVal) {
-        this.direction = 'left';
-      } else {
-        this.direction = 'right';
-      }
+    'dataList.length': {
+      handler(newVal) {
+        if (newVal > 0) {
+          this.$pageLoading.hide();
+        } else {
+          this.$pageLoading('line');
+        }
+      },
+      immediate: true,
     },
   },
   computed: {
@@ -21,13 +23,16 @@ export default {
   },
   methods: {
     // 切换tab
-    changeTab() {
+    async handleChangeTab() {
+      this.showScrollBar = true;
       this.cancel('请求被取消了');
       this.isData = true;
       this.isMore = true;
       this.dataList = [];
       this.queryList.page = 1;
-      this.getDataList('refresh');
+      await this.getDataList('refresh');
+      this.$refs.scroll.scrollTo(0, 0);
+      this.showScrollBar = false;
     },
   },
 };

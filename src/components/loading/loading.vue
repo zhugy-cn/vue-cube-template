@@ -1,8 +1,9 @@
 <template>
   <div class="load-spinner">
-    <span class="spinners" :style="style">
+    <span class="spinners" :class="{ slot: hasSlot }" :style="style">
       <i class="spinner" v-for="item in balde" :key="item"></i>
     </span>
+    <slot></slot>
   </div>
 </template>
 
@@ -29,19 +30,27 @@ export default {
         height: value,
       };
     },
+    hasSlot() {
+      return this.$slots.default;
+    },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
 .load-spinner
-  font-size 12PX
+  color #888
+  display flex
+  align-items center
+  justify-content center
   .spinners
+    font-size 12PX
     position relative
     display block
     width 1em
     height 1em
-    margin 0 auto
+    &.slot
+      margin-right 8px
   .spinner
     position absolute
     left 44.5%

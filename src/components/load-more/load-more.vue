@@ -47,17 +47,6 @@ export default {
 </script>
 
 <style lang="stylus">
-// 淡入
-.zui-toast-fade-enter-active
-  animation toast-in 0.2s
-.zui-toast-fade-leave-active
-  animation toast-out 0.2s
-@keyframes toast-in
-  100%
-    opacity 1
-@keyframes toast-out
-  100%
-    opacity 0
 .load-more
   position relative
   display flex
@@ -74,6 +63,6 @@ export default {
 .line
   width 20%
   height 1PX
-  background-color #999
-  transform scaleY(0.4)
+  background-color rgba(153, 153, 153, 0.4)
+  transform scaleY(0.6)
 </style>

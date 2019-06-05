@@ -1,20 +1,20 @@
 <template>
-  <transition name="zui-toast-fade">
-    <div class="zui-loading" v-show="visible">
-      <div v-if="type === 'dot'" class="load-dot">
-        <div class="load load1"></div>
-        <div class="load load2"></div>
-        <div class="load"></div>
-      </div>
-      <div v-if="type === 'line'" class="load-line">
-        <div class="load load1"></div>
-        <div class="load load2"></div>
-        <div class="load load3"></div>
-        <div class="load load4"></div>
-        <div class="load load5"></div>
-      </div>
+  <!-- <transition name="zui-toast-fade"> -->
+  <div class="zui-loading" v-show="visible">
+    <div v-if="type === 'dot'" class="load-dot">
+      <div class="load load1"></div>
+      <div class="load load2"></div>
+      <div class="load"></div>
     </div>
-  </transition>
+    <div v-if="type === 'line'" class="load-line">
+      <div class="load load1"></div>
+      <div class="load load2"></div>
+      <div class="load load3"></div>
+      <div class="load load4"></div>
+      <div class="load load5"></div>
+    </div>
+  </div>
+  <!-- </transition> -->
 </template>
 
 <script>
@@ -27,6 +27,8 @@ export default {
   },
   methods: {
     show(type = 'dot') {
+      console.log(type);
+
       this.type = type;
       this.visible = true;
     },
@@ -42,19 +44,18 @@ export default {
   position absolute
   left 0
   right 0
-  top 44px
+  top 0
   bottom 0
   z-index 100
   display flex
   align-items center
   justify-content center
-  padding-bottom 100px
   // background-color rgba(37, 38, 45, 0.2)
 // 淡入
 .zui-toast-fade-enter-active
-  animation toast-in 0.2s
+  animation toast-in 0.1s
 .zui-toast-fade-leave-active
-  animation toast-out 0.2s
+  animation toast-out 0.1s
 @keyframes toast-in
   0%
     opacity 0
@@ -91,11 +92,11 @@ export default {
 .load-line
   display flex
   justify-content space-around
-  width 50PX
-  height 56PX
+  width 48PX
+  height 54PX
   .load
     height 100%
-    width 5PX
+    width 4PX
     background-color #00adb5
     animation stretchdelay 1.2s infinite ease-in-out
   .load2
@@ -108,7 +109,7 @@ export default {
     animation-delay -0.8s
 @keyframes stretchdelay
   0%, 40%, 100%
-    transform scaleY(0.5)
+    transform scaleY(0.46)
   20%
     transform scaleY(1)
 </style>

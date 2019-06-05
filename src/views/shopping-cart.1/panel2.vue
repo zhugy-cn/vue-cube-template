@@ -1,16 +1,9 @@
 <template>
-  <transition-group
-    appear
-    tag="div"
-    :css="false"
-    @before-enter="beforeEnter"
-    @enter="enter"
-  >
+  <div class="panel1">
     <div
       class="panel-item-wrap border-bottom-1px"
-      v-for="(item, index) in dataList"
+      v-for="item in dataList"
       :key="item.id"
-      :data-index="index"
     >
       <div
         class="panel__content"
@@ -59,12 +52,12 @@
         <div class="right-staff">揽件员：{{ item.name }}</div>
       </div>
     </div>
-  </transition-group>
+  </div>
 </template>
 <script>
 import panelItemMixin from '@/mixins/panelItemMixin';
 export default {
-  name: 'Panel3',
+  name: 'Panel2',
   mixins: [panelItemMixin],
 };
 </script>
