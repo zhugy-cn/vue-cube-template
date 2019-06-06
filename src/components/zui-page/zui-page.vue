@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <zui-header :title="title"></zui-header>
+  <div class="zui-page">
+    <zui-header v-if="header" :title="title"></zui-header>
     <template v-if="loading">
       <!-- 需要显示loading -->
       <transition name="page-fade">
@@ -21,10 +21,15 @@
 export default {
   name: 'ZuiPage',
   props: {
-    // 头部loading
+    // 头部标题
     title: {
       type: String,
       default: '',
+    },
+    // 是否隐藏头部
+    header: {
+      type: Boolean,
+      default: true,
     },
     // 是否显示loading
     loading: {
@@ -54,9 +59,13 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+.zui-page
+  height 100%
+  display flex
+  flex-direction column
 .zui-body
-  height calc(100% - 44px)
-  overflow auto
+  flex 1
+  overflow hidden
   // 淡入
 .page-fade-enter-active
   animation fade-in 0.2s

@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <zui-scroll></zui-scroll>
-  </div>
+  <zui-page>
+    <div>
+      <zui-scroll></zui-scroll>
+    </div>
+  </zui-page>
 </template>
 
 <script>

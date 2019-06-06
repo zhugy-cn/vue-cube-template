@@ -1,6 +1,6 @@
 <template functional>
   <div class="zui-no-data" :style="{ marginTop: marginTop }">
-    <img class="zui-no-data__img" src="../../assets/images/icon-null.png" />
+    <img class="zui-no-data__img" src="./icon-null.png" />
     <p class="zui-no-data__text">
       <slot>暂无数据</slot>
     </p>

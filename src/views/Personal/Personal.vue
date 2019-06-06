@@ -37,6 +37,11 @@ export default {
       cellList: ['popup', 'loading', 'toast', 'load-more', 'scroll'],
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.$pageLoading.hide();
+    }, 1000);
+  },
 };
 </script>
 <style lang="stylus" scoped src="./personal.styl"></style>

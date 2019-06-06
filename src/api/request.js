@@ -50,7 +50,6 @@ ajax.interceptors.request.use(
 ajax.interceptors.response.use(
   response => {
     const { data } = response;
-
     // 测试
     if (data.status) {
       return data.data;

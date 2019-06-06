@@ -27,8 +27,6 @@ export default {
   },
   methods: {
     show(type = 'dot') {
-      console.log(type);
-
       this.type = type;
       this.visible = true;
     },

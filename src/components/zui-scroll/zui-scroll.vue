@@ -228,6 +228,7 @@ export default {
 <style lang="stylus" scoped>
 // 测试
 .pulldown
+  position relative
   height 100%
   background-color #fff
 .pulldown-bswrapper

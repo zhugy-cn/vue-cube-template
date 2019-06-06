@@ -92,20 +92,20 @@ export default {
   height 100%
   display flex
   flex-direction column
-  .index__content
-    flex 1
-    overflow auto
-  .tab-bar__custom
-    background #fff
-    // transition transform 0.4s
-    // &.move
-    //   transform translateY(100%) translateZ(0)
-    .cube-tab
-      flex-box-col(center, center)
-      height 50px
-      padding 0
-      font-size 12px
-    i
-      font-size 20px
-      margin-bottom 2px
+.index__content
+  flex 1
+  overflow hidden
+.tab-bar__custom
+  background #fff
+  // transition transform 0.4s
+  // &.move
+  //   transform translateY(100%) translateZ(0)
+  .cube-tab
+    flex-box-col(center, center)
+    height 50px
+    padding 0
+    font-size 12px
+  i
+    font-size 20px
+    margin-bottom 2px
 </style>

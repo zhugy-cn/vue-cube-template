@@ -22,6 +22,7 @@ export default {
 <style lang="stylus" scoped>
 header
   position relative
+  z-index 9
   height 44px
   line-height 44px
   color #fff

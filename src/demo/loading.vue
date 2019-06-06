@@ -1,11 +1,13 @@
 <template>
   <zui-page :loading="false">
-    <cube-button @click="handleShowLoading('dot')"
-      >网页loading（一）</cube-button
-    >
-    <cube-button @click="handleShowLoading('line')"
-      >网页loading（二）</cube-button
-    >
+    <div class="btn-list">
+      <cube-button @click="handleShowLoading('dot')"
+        >网页loading（一）</cube-button
+      >
+      <cube-button @click="handleShowLoading('line')"
+        >网页loading（二）</cube-button
+      >
+    </div>
   </zui-page>
 </template>
 <script>
@@ -26,7 +28,3 @@ export default {
   },
 };
 </script>
-<style lang="stylus" scoped>
-.cube-btn
-  margin 20px 0
-</style>
