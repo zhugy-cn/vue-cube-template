@@ -7,6 +7,8 @@
       <cube-button @click="handleRouterPush('demo4')"
         >pull-down and pull-up</cube-button
       >
+      <cube-button @click="handleRouterPush('demo5')">recycle-list</cube-button>
+      <cube-button @click="handleRouterPush('demo6')">手写下拉刷新</cube-button>
     </div>
   </zui-view>
 </template>

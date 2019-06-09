@@ -37,6 +37,28 @@ export function getQueryString(url) {
   return theRequest;
 }
 
+// 返回驼峰形式
+// scroll-end scrollEnd
+export function camelize(str) {
+  str = String(str);
+  const camelizeRE = /-(\w)/g;
+  return str.replace(camelizeRE, function(m, c) {
+    return c ? c.toUpperCase() : '';
+  });
+}
+
+// 节流
+export function throttle(fn, wait) {
+  let previous = 0;
+  return function() {
+    let now = new Date().getTime();
+    if (now - previous > wait) {
+      fn.apply(this, arguments);
+      previous = now;
+    }
+  };
+}
+
 export function dealObjectValue(obj, arr) {
   let params = {};
   let whiteList = [null, undefined, '', NaN];

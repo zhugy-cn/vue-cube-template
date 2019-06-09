@@ -64,6 +64,22 @@ export default [
         component: () =>
           import(/* webpackChunkName: "scroll" */ '@/demo/scroll/demo4.vue'),
       },
+      {
+        path: 'demo5',
+        meta: {
+          title: 'scroll/虚拟列表',
+        },
+        component: () =>
+          import(/* webpackChunkName: "scroll" */ '@/demo/scroll/demo5.vue'),
+      },
+      {
+        path: 'demo6',
+        meta: {
+          title: 'scroll/下拉刷新',
+        },
+        component: () =>
+          import(/* webpackChunkName: "scroll" */ '@/demo/scroll/demo6.vue'),
+      },
     ],
   },
 ];

@@ -8,7 +8,6 @@ export default {
       isData: true, // 是否有数据
       isLoading: false, // 是否正在加载中
       isMore: true, // 是否还有下一页
-      originList: [],
       queryList: {
         page: 1,
         limit: 10,
@@ -67,16 +66,9 @@ export default {
         }
         if (type === 'refresh') {
           this.dataList = [];
-          this.originList = list;
           this.dataList = list;
         } else {
-          let temp = this.originList.concat(list);
-          this.originList = temp;
-          if (temp.length >= 30) {
-            this.dataList = temp.slice(-30);
-          } else {
-            this.dataList = this.dataList.concat(list);
-          }
+          this.dataList = this.dataList.concat(list);
         }
         this.isLoading = false;
         // 赋值之后钩子

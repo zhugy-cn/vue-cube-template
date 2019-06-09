@@ -53,6 +53,7 @@ export default {
   justify-content center
   align-items center
   line-height 1
+  height 48px
 .load-more-text
   color #777
   margin-left 10PX

@@ -10,6 +10,7 @@ export function getList_api(params, cancelToken) {
   return request.get('/getList', {
     params,
     cancelToken,
-    baseURL: 'https://api.zhugy.cn',
+    // baseURL: 'https://api.zhugy.cn',
+    baseURL: 'http://192.168.1.200:3000',
   });
 }
