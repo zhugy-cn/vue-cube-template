@@ -1,3 +1,9 @@
+<template>
+  <mescroll-vue ref="mescroll" :down="mescrollDown" :up="mescrollUp">
+    <slot></slot>
+  </mescroll-vue>
+</template>
+<script>
 import MescrollVue from 'mescroll.js/mescroll.vue';
 import { getList_api } from '_api/common';
 
@@ -86,3 +92,4 @@ export default {
     },
   },
 };
+</script>

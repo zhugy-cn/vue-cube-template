@@ -38,7 +38,7 @@ export function getQueryString(url) {
 }
 
 // 返回驼峰形式
-// scroll-end scrollEnd
+// scroll-end => scrollEnd
 export function camelize(str) {
   str = String(str);
   const camelizeRE = /-(\w)/g;

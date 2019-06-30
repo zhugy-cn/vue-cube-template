@@ -43,7 +43,7 @@ export default {
         if (this._beforeGetList) {
           this._beforeGetList();
         }
-        let { data: list } = await this.getList_api(
+        let { list } = await this.getList_api(
           params,
           new CancelToken(c => (this.cancel = c)),
         );

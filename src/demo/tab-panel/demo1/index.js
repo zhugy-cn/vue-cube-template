@@ -1,15 +1,18 @@
-import MescrollVue from 'mescroll.js/mescroll.vue';
+import axios from 'axios';
 import { getList_api } from '_api/common';
-
+import MescrollVue from 'mescroll.js/mescroll.vue';
 export default {
-  name: 'Mall',
   components: {
     MescrollVue,
   },
   data() {
     return {
-      goodsList: [],
+      isInit: true,
+      tabIndex: 0,
+      tabs: ['全部', '待付款', '待发货', '待收货'],
+      dataList: [],
       mescrollDown: {
+        offset: 60,
         auto: false,
         callback: this.downCallback,
         inited: this._inited,
@@ -20,16 +23,51 @@ export default {
       },
       mescrollUp: {
         // 上拉加载的配置.
-        callback: this.upCallback,
+        callback: (page, mescroll) => {
+          if (this.isInit) {
+            setTimeout(() => {
+              this.upCallback(page, mescroll);
+              this.isInit = false;
+            }, 350);
+          } else {
+            this.upCallback(page, mescroll);
+          }
+        },
+        noMoreSize: 2,
         isBounce: false,
         lazyLoad: {
           use: true,
         },
         toTop: {
-          src: require('./totop.png'),
+          src: require('../../../assets/images/mescroll-topTop.png'),
+        },
+        empty: {
+          warpId: 'listWrap',
+          icon: require('../../../assets/images/mescroll-empty.png'),
+          tip: '暂无相关数据 ~', //提示
+          btntext: '刷新试试 >', //按钮,默认""
+          btnClick: () => {
+            this.mescroll.resetUpScroll();
+          },
         },
       },
     };
+  },
+  computed: {
+    type() {
+      switch (this.tabIndex) {
+        case 0:
+          return 0;
+        case 1:
+          return 1;
+        case 2:
+          return 20;
+        case 3:
+          return 3;
+        default:
+          return 0;
+      }
+    },
   },
   beforeRouteEnter(to, from, next) {
     // 如果没有配置回到顶部按钮或isBounce,则beforeRouteEnter不用写
@@ -45,24 +83,41 @@ export default {
     next();
   },
   methods: {
+    mescrollInit(mescroll) {
+      this.mescroll = mescroll;
+    },
+    handleChangeTab() {
+      this.cancel('cancel');
+      this.dataList = [];
+      this.mescroll.resetUpScroll();
+      this.mescroll.hideTopBtn();
+    },
     async upCallback({ num, size }, mescroll) {
       try {
         let params = {
           page: num,
           limit: size,
+          type: this.type,
         };
-        let { list } = await getList_api(params);
-        if (num === 1) this.goodsList = [];
-        this.goodsList = this.goodsList.concat(list);
+        let CancelToken = axios.CancelToken;
+        let { list } = await getList_api(
+          params,
+          new CancelToken(c => (this.cancel = c)),
+        );
+        list.forEach(item => (item.isOpen = false));
+        if (num === 1) this.dataList = [];
+        this.dataList = this.dataList.concat(list);
         await this.$nextTick();
         mescroll.endSuccess(list.length);
       } catch (error) {
-        mescroll.endErr();
+        if (error !== 'cancel') {
+          mescroll.endErr();
+        }
       }
     },
     downCallback(mescroll) {
       setTimeout(() => {
-        this.upCallback({ num: 1, size: 10 }, mescroll);
+        mescroll.resetUpScroll();
       }, 500);
     },
     _inited(mescroll, downwarp) {

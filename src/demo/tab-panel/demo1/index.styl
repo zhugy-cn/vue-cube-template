@@ -1,0 +1,132 @@
+.demo1-page
+  display flex
+  flex-direction column
+  .tab-panel
+    flex 1
+    overflow hidden
+    background-color #F4F4F4
+.cube-tab-bar__custom
+  background-color #fff
+  .cube-tab
+    color rgba(0, 0, 0, 0.6)
+    line-height 20px
+    padding 15px 0 12px
+  .cube-tab_active
+    color #000
+    font-size 16px
+    font-weight 700
+.panel-item
+  border-radius 10px
+  margin 15px 15px 0
+  background-color #fff
+// 头部
+.panel-item__hd
+  display flex
+  align-items center
+  height 42px
+  padding 0 15px
+  .left
+    ellipsis()
+    flex 1
+    font-weight 700
+  .right
+    color rgba(0, 0, 0, 0.6)
+    font-size 12px
+// 内容
+.panel-item__bd
+  margin 0 15px
+// 内容 - 产品列表
+.product-item
+  display flex
+  margin-top 15px
+.product-item__left
+  width 60px
+  height 60px
+  margin-right 10px
+  .picture
+    width 100%
+    height 100%
+    border-radius 5px
+.product-item__right
+  flex 1
+  display flex
+  flex-direction column
+  justify-content space-around
+  color #000
+  font-size 12px
+  overflow hidden
+  .name
+    ellipsis()
+// 内容 - 底部
+.panel-bd__ft
+  display flex
+  align-items center
+  justify-content space-between
+  padding 15PX 0
+  .left
+    color #D89E63
+    font-size 12px
+  button
+    height 26px
+    line-height 28px
+    min-width 70px
+    padding 0 14px
+    text-align center
+    box-sizing border-box
+    border-radius 26px
+    &:last-child
+      margin-left 10px
+    &.outline
+      border 1PX solid #ccc
+    &.primary
+      color #fff
+      background-color #D89E63
+// 底部
+.panel-item__ft
+  color rgba(0, 0, 0, 0.6)
+  font-size 12px
+  padding 0 15px
+  .cubeic-select
+    color #000
+    font-size 14px
+    margin-left 8px
+.detail-hd
+  display flex
+  align-items center
+  height 48px
+  .label
+    flex 1
+    ellipsis()
+  .value
+    color #000
+.detail-bd
+  padding-top 15px
+.detail__item
+  display flex
+  margin-bottom 10px
+.detail__label
+  width 52PX
+  height 13PX
+  overflow hidden
+  text-align justify
+.detail__label::after
+  content ''
+  width 100%
+  display inline-block
+.detail__value
+  flex 1
+.detail__close
+  display flex
+  align-items center
+  justify-content center
+  color #000
+  padding 10px 0 20px
+  .cubeic-select
+    transform rotate(180deg)
+.panel-fade-enter-active
+  animation fade-in 0.3s
+@keyframes fade-in
+  0%
+    opacity 0
+  100%
+    opacity 1

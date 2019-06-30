@@ -4,14 +4,52 @@ body, html, #app, .root-router
   position relative
   color #333
   font-size 14px
-  line-height 1
+  line-height 1.12
   background #f5f5f9
   overflow hidden
 img
   vertical-align top
-  display block
-
+button, input, textarea
+  border 0
+  padding 0
+  outline none
+  color inherit
+  font-family inherit
+  font-size inherit
+  line-height normal
+  /* 消除输入框和按钮的原生外观 */
+  -webkit-appearance none
+  background-color transparent
 .btn-list
   padding 20px
   .cube-btn:not(:last-child)
     margin-bottom 20px
+  /* 1px 边框 */
+[class*='border-1px']
+  position relative
+[class*='border-1px']::after
+  content ''
+  position absolute
+  top 0
+  left 0
+  width 200%
+  height 200%
+  -webkit-transform scale(0.5)
+  transform scale(0.5)
+  -webkit-transform-origin 0 0
+  transform-origin 0 0
+  pointer-events none
+  box-sizing border-box
+  border 0 solid #e5e5e5
+.border-1px--top::after
+  border-top-width 1px
+.border-1px--left::after
+  border-left-width 1px
+.border-1px--right::after
+  border-right-width 1px
+.border-1px--bottom::after
+  border-bottom-width 1px
+.border-1px--top-bottom::after
+  border-width 1px 0
+.border-1px--surround::after
+  border-width 1px

@@ -59,10 +59,9 @@ export default {
     visibility visible
 .zui-view-content
   &.move
-    transition transform 0.28s
+    transition transform 0.3s
     &.toggle
-      transform scaleX(0.7) translateX(-20%) translateZ(0)
-      transform-origin left
+      transform scaleY(0.98) translateX(-20%) translateZ(0)
   &.scale
     transition transform 0.4s
     &.toggle

@@ -82,4 +82,19 @@ export default [
       },
     ],
   },
+  {
+    path: '/tab-panel',
+    name: 'TabPanel',
+    component: () =>
+      import(/* webpackChunkName: "tab-panel" */ '@/demo/tab-panel/index.vue'),
+    children: [
+      {
+        path: 'demo1',
+        component: () =>
+          import(
+            /* webpackChunkName: "tab-panel" */ '@/demo/tab-panel/demo1/index.vue'
+          ),
+      },
+    ],
+  },
 ];

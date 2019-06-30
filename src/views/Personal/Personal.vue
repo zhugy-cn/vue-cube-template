@@ -34,7 +34,14 @@ export default {
   name: 'Personal',
   data() {
     return {
-      cellList: ['popup', 'loading', 'toast', 'load-more', 'scroll'],
+      cellList: [
+        'popup',
+        'loading',
+        'toast',
+        'load-more',
+        'scroll',
+        'tab-panel',
+      ],
     };
   },
   mounted() {

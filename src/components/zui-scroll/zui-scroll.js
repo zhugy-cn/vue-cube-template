@@ -29,7 +29,7 @@ const EVENT_PULLING_UP = 'pulling-up';
 // 默认配置
 const DEFAULT_OPTIONS = {
   click: true,
-  scrollbar: true, // 滚动条
+  scrollbar: false, // 滚动条
   pullDownRefresh: false, // 下拉刷新
   pullUpLoad: false, // 上拉加载
 };

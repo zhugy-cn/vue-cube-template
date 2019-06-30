@@ -1,0 +1,48 @@
+// 背景图
+.default-bg
+  background-color #F4F4F4 !important
+// 轮播图
+.cube-slide-dots
+  bottom 8px
+  &>span
+    width 15px
+    height 2PX
+    margin 0 4px
+    background-color rgba(0, 0, 0, 0.2)
+    &.active
+      background-color #fff
+.slide-img
+  width 100%
+  height 100%
+/* 金额符号 */
+.price-code
+  position relative
+  color #d89e63
+  font-size 0.426667rem
+  font-weight 700
+  padding-left 0.266667rem
+.price-code::before
+  content '\A5'
+  position absolute
+  left 0
+  top 50%
+  transform translateY(-45%)
+  font-size 0.32rem
+  text-decoration none
+// 多选框点击层
+.checkbox-wrap
+  position relative
+  .checkbox-mask
+    position absolute
+    z-index 10
+    width 100%
+    height 100%
+// 右箭头
+.iconiconfontplatformentrance
+  color #666
+// 底部按钮
+.footer-btn
+  padding 5px 15px
+  border-top 1PX solid rgba(7, 17, 27, 0.1)
+  .cube-btn
+    width 100%
