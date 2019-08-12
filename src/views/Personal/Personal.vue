@@ -30,6 +30,10 @@
   </zui-view>
 </template>
 <script>
+import areaData from 'area-data';
+
+console.log(areaData);
+
 export default {
   name: 'Personal',
   data() {

@@ -11,12 +11,7 @@
       </cube-tab>
     </cube-tab-bar>
     <div class="tab-panel">
-      <mescroll-vue
-        ref="mescroll"
-        :down="mescrollDown"
-        :up="mescrollUp"
-        @init="mescrollInit"
-      >
+      <mescroll-vue ref="mescroll" :down="mescrollDown" :up="mescrollUp" @init="mescrollInit">
         <ul class="panel-list" id="listWrap">
           <li class="panel-item" v-for="item in dataList" :key="item.id">
             <div class="panel-item__hd border-1px--bottom">
@@ -25,11 +20,7 @@
             </div>
             <div class="panel-item__bd border-1px--bottom">
               <ul class="product-list">
-                <li
-                  class="product-item"
-                  v-for="val in item.orderList"
-                  :key="val.id"
-                >
+                <li class="product-item" v-for="val in item.orderList" :key="val.id">
                   <div class="product-item__left">
                     <img
                       class="picture"
@@ -57,11 +48,7 @@
             </div>
             <div class="panel-item__ft">
               <transition name="panel-fade">
-                <div
-                  class="detail-hd"
-                  v-show="!item.isOpen"
-                  @click="item.isOpen = !item.isOpen"
-                >
+                <div class="detail-hd" v-show="!item.isOpen" @click="item.isOpen = !item.isOpen">
                   <span class="label">配送地址：{{ item.start_addr }}</span>
                   <span class="value">详情</span>
                   <i class="cubeic-select"></i>
@@ -85,10 +72,7 @@
                     <span class="detail__label">下单时间</span>：
                     <span class="detail__value">{{ item.start_time }}</span>
                   </div>
-                  <div
-                    class="detail__close"
-                    @click="item.isOpen = !item.isOpen"
-                  >
+                  <div class="detail__close" @click="item.isOpen = !item.isOpen">
                     <span>收起</span>
                     <i class="cubeic-select"></i>
                   </div>
