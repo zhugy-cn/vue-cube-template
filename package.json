@@ -14,7 +14,7 @@
     "@better-scroll/scroll-bar": "^2.0.0-alpha.12",
     "amfe-flexible": "^2.2.1",
     "area-data": "^5.0.6",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.5",
     "cube-ui": "~1.12.15",
     "mescroll.js": "^1.4.1",
